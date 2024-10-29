@@ -461,7 +461,7 @@ def validate_yaml(
                 try:
                     module = load_module_from_path(functions_filepath)
                 except ImportError as e:
-                    raise ImportError(f"Error importing module {self.flow.functions_filepath}: {e}")
+                    raise ImportError(f"Error importing module {functions_filepath}: {e}")
                 try:
                     getattr(module, function_name)
                 except AttributeError as e:
@@ -504,7 +504,7 @@ def validate_yaml(
                         module = importlib.import_module('langchain_community.tools')
                         try:
                             _ = getattr(module, tool_name)
-                        except:
+                        except Exception as e:
                             error_msgs.append(
                                 f"Unable to import {tool_name} from langchain_community.tools. Please check Langchain's documentation.\n Langchain error message: {e}")
                             validated = False
