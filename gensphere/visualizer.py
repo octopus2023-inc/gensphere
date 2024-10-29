@@ -136,14 +136,97 @@ class Visualizer:
 
         # Define the legend for the node types and shapes
         legend = html.Div([
-            # ... (legend code remains the same)
+            html.H4('Legend', style={'color': '#fff'}),
+            html.Div([
+                html.Div([
+                    html.Div(style={
+                        'width': '20px',
+                        'height': '20px',
+                        'backgroundColor': '#0074D9',
+                        'display': 'inline-block',
+                        'marginRight': '10px'
+                    }),
+                    html.Span('Function Call Node', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Div(style={
+                        'width': '20px',
+                        'height': '20px',
+                        'backgroundColor': '#2ECC40',
+                        'display': 'inline-block',
+                        'marginRight': '10px'
+                    }),
+                    html.Span('LLM Service Node', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Div(style={
+                        'width': '20px',
+                        'height': '20px',
+                        'backgroundColor': '#FF851B',
+                        'display': 'inline-block',
+                        'marginRight': '10px'
+                    }),
+                    html.Span('YML Flow Node', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Div(style={
+                        'width': '20px',
+                        'height': '20px',
+                        'backgroundColor': '#888',
+                        'border': '2px solid #fff',
+                        'display': 'inline-block',
+                        'marginRight': '10px',
+                        'boxSizing': 'border-box'
+                    }),
+                    html.Span('Entrypoint Node', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Div(style={
+                        'width': '0',
+                        'height': '0',
+                        'borderLeft': '10px solid transparent',
+                        'borderRight': '10px solid transparent',
+                        'borderTop': '20px solid #888',
+                        'display': 'inline-block',
+                        'marginRight': '10px'
+                    }),
+                    html.Span('Output Node', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Span(style={
+                        'width': '20px',
+                        'height': '2px',
+                        'backgroundColor': '#ccc',
+                        'display': 'inline-block',
+                        'marginRight': '10px'
+                    }),
+                    html.Span('Edge', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+                html.Div([
+                    html.Span(style={
+                        'width': '20px',
+                        'height': '2px',
+                        'backgroundColor': '#ccc',
+                        'display': 'inline-block',
+                        'marginRight': '10px',
+                        'borderBottom': '1px dashed #ccc'
+                    }),
+                    html.Span('Edge to YML Flow', style={'color': '#fff'})
+                ], style={'marginBottom': '5px'}),
+            ])
         ], style={
-            # ... (legend style remains the same)
+            'position': 'absolute',
+            'top': '10px',
+            'right': '10px',
+            'backgroundColor': '#2e2e2e',
+            'padding': '10px',
+            'border': '1px solid #fff',
+            'borderRadius': '5px'
         })
 
         # Define the layout
         app.layout = html.Div([
-            html.H1('gensphere Workflow Visualizer', style={'color': '#fff'}),
+            html.H1('GenSphere Workflow Visualizer', style={'color': '#fff'}),
             html.Div([
                 html.Label('YAML File Path:', style={'color': '#fff'}),
                 dcc.Input(id='yaml-file-input', value=self.yaml_file, type='text', style={'width': '300px'}),

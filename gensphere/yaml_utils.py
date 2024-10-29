@@ -460,9 +460,11 @@ def validate_yaml(
                 # Validate that the function exists
                 try:
                     module = load_module_from_path(functions_filepath)
-                    if not hasattr(module, function_name):
-                        raise AttributeError
-                except (ImportError, AttributeError):
+                except ImportError as e:
+                    raise ImportError(f"Error importing module {self.flow.functions_filepath}: {e}")
+                try:
+                    getattr(module, function_name)
+                except AttributeError as e:
                     error_msgs.append(f"Function '{function_name}' not found in '{functions_filepath}' for node '{node_name}' in YAML file '{yaml_file}'.")
                     validated = False
 
