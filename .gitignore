@@ -1,0 +1,108 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Poetry specific files
+poetry.lock
+*.whl
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.cache/
+test-reports/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# VSCode settings and extensions
+.vscode/
+
+# macOS files
+.DS_Store
+*.dmg
+.AppleDouble
+.LSOverride
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs and editors
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# FastAPI/Uvicorn log files
+*.log
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Ignore virtual environments
+venv/
+.env/
+*.env
+.venv/
+
+# Ignore mypy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+*db
+
+**/work_dir/

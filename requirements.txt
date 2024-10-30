@@ -1,0 +1,11 @@
+Jinja2
+networkx
+pydantic
+python-dotenv
+openai
+composio_core
+composio_openai
+langchain
+langchain-community
+dash
+dash-cytoscape
