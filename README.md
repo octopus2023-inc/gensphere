@@ -1,7 +1,7 @@
 # 🌐 GenSphere
 
 GenSphere is an open platform to share reusable components of LLM applications and an open-source framework
-to combine them into complex workflows. Think of a mix of HuggingFace and Docker for LLMs.
+to combine them into complex workflows. **Think of a mix of HuggingFace and Docker for LLMs.**
 
 ---
 
