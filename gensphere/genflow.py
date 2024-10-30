@@ -660,7 +660,7 @@ class Node:
                 if assistant_message.refusal:
                     raise Exception(f"OpenAI refusal for structured outputs on node '{self.name}'. Refusal:{assistant_message.refusal}")
                 else:
-                    result = assistant_message.parsed
+                    result = assistant_message.content
             except Exception as e:
                 if type(e) == openai.LengthFinishReasonError:
                     raise Exception(f"Too many tokens were passed to openAi during structured output generation on node {self.name}")
