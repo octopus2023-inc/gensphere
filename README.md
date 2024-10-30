@@ -16,8 +16,8 @@ GenSphere is built to address four primary needs for AI developers:
 
 We break any LLM application down to graphs where each node is either a function call, 
 an LLM API call or another graph itself. By doing so, you can inspect (and edit) any 
-application down to its core components. We want to break the cumbersome pile of 
-unnecessary abstractions that some modern frameworks bring, and which have turned LLM application building 
+application down to its core components. **We want to break the cumbersome pile of 
+unnecessary abstractions** that some modern frameworks bring, and which have turned LLM application building 
 quite opaque.
 
 ### 2. Portability
