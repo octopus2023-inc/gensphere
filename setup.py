@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='gensphere',
-    version='0.1.3',
+    version='0.1.4',
     description='Reusable components for LLM applications',
     url='https://github.com/octopus2023-inc/gensphere/',
     author='gensphere',

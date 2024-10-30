@@ -98,6 +98,7 @@ venv/
 *.env
 .venv/
 
+
 # Ignore mypy cache
 .mypy_cache/
 .dmypy.json
@@ -106,3 +107,6 @@ dmypy.json
 *db
 
 **/work_dir/
+
+#Ignore Markdown (to avoid readme for now)
+*.md
