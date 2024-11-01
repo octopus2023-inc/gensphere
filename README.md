@@ -8,9 +8,9 @@ to combine them into complex workflows. **Think of a mix of HuggingFace and Dock
 ![gensphere_workflow_example](img/gensphere_workflow_example.png)
 
 
-## Why GenSphere?
+## What is GenSphere?
 
-GenSphere is built to address four primary needs for AI developers:
+GenSphere is an open platform to share reusable components of LLM-based applications (functions, workflows, schemas) and an SDK for combining those components in an easy way.
 
 ### 1. Low-level control 
 
