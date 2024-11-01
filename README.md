@@ -151,3 +151,9 @@ We welcome contributions! Please [reach out by email](mailto:octopus2023.contact
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=octopus2023-inc/gensphere&type=Date)](https://star-history.com/#octopus2023-inc/gensphere&Date)

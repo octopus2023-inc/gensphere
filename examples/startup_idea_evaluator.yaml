@@ -1,0 +1,44 @@
+# startup_idea_evaluator.yaml
+
+nodes:
+  - name: read_idea
+    type: function_call
+    function: read_file_as_string
+    params:
+      file_path: "domains_to_search.txt"
+    outputs:
+      - domains
+      
+  - name: product_hunt_analyzer
+    type: yml_flow
+    yml_file: product_hunt_analyzer.yaml
+    outputs:
+      - postprocessed_search_results
+      - startup_extra_info
+      
+  - name: generate_report
+    type: llm_service
+    service: openai
+    model: "gpt-4o-2024-08-06"
+    params:
+      prompt: |
+         You are a world class VC analyst. You are currently analyzing the following startup idea:
+         {{ read_idea.domains }}
+         Your task is to help analyze this idea in face of recent launches in product hunt. 
+         Some recents launches in producthunt.com are:
+         {{ product_hunt_analyzer.postprocessed_search_results }}
+         Besides that, some extra information about these companies is:
+         {{ product_hunt_analyzer.startup_extra_info }}. 
+        
+         Given that, you should create a detailed report containing the following:
+         1. An overview of recent launches in producthunt.com. What are the main ideas being explored? 
+         2. A list of companies from producthunt launches that may become direct competitors to the startup idea.
+         Explain your rational
+         3. Create a list of the most promising startups from the producthunt launches, as defined by their 
+         valuation, revenue, traction or other relevant metrics. 
+         4. A table containing all information you found from producthunt launches.
+         
+         Answer in markdown format, and ensure your formatting is correct and that the output will be rendered without issues on a jupyter notebook.
+         
+    outputs:
+      - report

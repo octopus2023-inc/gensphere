@@ -1,0 +1,72 @@
+# product_hunt_analyzer.yaml
+
+nodes:      
+  - name: get_current_date
+    type: function_call
+    function: get_current_date_function
+    outputs:
+      - current_date
+      
+  - name: get_timewindow
+    type: function_call
+    function: get_timewindow_function
+    outputs:
+      - time_window
+  
+  - name: product_hunt_scrape
+    type: llm_service
+    service: openai
+    model: "gpt-4o-2024-08-06"
+    tools:
+      - COMPOSIO.FIRECRAWL_SCRAPE
+    params:
+      prompt: |
+         You should visit producthunt at https://www.producthunt.com/leaderboard/monthly/yyyy/mm 
+         Today is {{ get_current_date.current_date }}
+         You should subsitute yyyy and mm by year and month you want to search.
+         The search time window should be {{ get_timewindow.time_window }}.
+         After that, you should extract raw content from the htmls associated,
+         which will contain information about new product launches, their companies, number of upvotes, etc. 
+         Scroll the page until the end and wait a few miliseconds for it to launch before scraping.
+    outputs:
+      - product_hunt_scrape_results    
+      
+  - name: extract_info_from_search
+    type: llm_service
+    service: openai
+    model: "gpt-4o-2024-08-06"
+    structured_output_schema: StartupInformationList
+    params:
+      prompt: |
+         You are given reports from a search to https://www.producthunt.com/leaderboard/monthly/, containing 
+         products featured there in the following time window: {{ get_timewindow.time_window }}. Here
+         is the content of the search:
+         {{ product_hunt_scrape.product_hunt_scrape_results }}. 
+         We want to extract accurate information about these new product launches. 
+         Structure the information there by the following dimensions:  product name, company name, company url, number of upvotes, business model
+         brief description of it.
+    outputs:
+      - structured_search_info
+      
+  - name: postprocess_search_results
+    type: function_call
+    function: postprocess_search_results_functions
+    params:
+      info: '{{ extract_info_from_search.structured_search_info }}'
+    outputs:
+      - postprocessed_search_results
+      
+  - name: find_extra_info
+    type: llm_service
+    service: openai
+    model: "gpt-4o-2024-08-06"
+    tools:
+      - COMPOSIO.TAVILY_TAVILY_SEARCH
+    params:
+      prompt: |
+         You should conduct a comprehensive search on the web about the following entry from producthunt.com:
+         {{ postprocess_search_results.postprocessed_search_results[i] }}. You should look to find relevant news 
+         about the company, specially related to its revenue, valuation, traction, acquisition if applicable, 
+         number of users, etc.
+    outputs:
+      - startup_extra_info
