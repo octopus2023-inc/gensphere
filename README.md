@@ -130,7 +130,7 @@ pip install gensphere
 ## Quickstart guide
 
 ### 1. Go over our 5-min tutorial notebook
-This notebook contains everything you need to know about GenSphere. 
+This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/GenSphere_tutorial.ipynb) contains everything you need to know about GenSphere. 
 
 ---
 ## Examples
