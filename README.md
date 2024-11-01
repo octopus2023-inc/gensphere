@@ -73,10 +73,10 @@ platform and build with them instead of having to work from scratch.
 ## How does it work?
 
 - **1. Define your workflow with yaml files**: Your project is defined by 3 files
-- a. yaml file which represents a graph, where each node is a task to be executed, and which can receive inputs from other nodes. Every node is either a
+  a. yaml file which represents a graph, where each node is a task to be executed, and which can receive inputs from other nodes. Every node is either a
 python function call (see below), an AI API call or another yaml file itself.
-- b. a functions.py file, which contains python functions to be executed in the yaml nodes, or to be used as tools for LLMs
-- c. a schemas.py file which contains pydantic models (that you can use for structured output schema from openAI)   
+  b. a functions.py file, which contains python functions to be executed in the yaml nodes, or to be used as tools for LLMs
+  c. a schemas.py file which contains pydantic models (that you can use for structured output schema from openAI)   
 
 - **2. Compose complex workflows by nesting graphs**: A node can also be another graph itself, and the SDK will 
 take care to resolve dependencies, check consistency and compose a final execution graph. 
