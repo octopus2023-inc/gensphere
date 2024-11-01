@@ -262,36 +262,28 @@ class YamlCompose:
             dict: The adjusted parameters.
         """
         adjusted_params = {}
-        pattern = r"(\{\{\s*)([\w_\.]+)(\s*\}\})"
+        # Updated pattern to match node references with optional indexing
+        pattern = r"(\{\{\s*)([\w_]+)\.([\w_\.]*(?:\[[^\]]+\])?)(\s*\}\})"
 
         for key, value in params.items():
             if isinstance(value, str):
                 def replace_func(match):
-                    full_match = match.group(0)
                     prefix_match = match.group(1)
-                    reference = match.group(2)
-                    suffix_match = match.group(3)
-
-                    # Split the reference into parts
-                    parts = reference.split('.')
-                    first_part = parts[0]
-                    rest_parts = parts[1:]
-
-                    # Only adjust if the first part is in sub_flow_node_names
-                    if first_part in sub_flow_node_names:
-                        adjusted_first_part = prefix + first_part
+                    node_name = match.group(2)
+                    rest_of_reference = match.group(3)
+                    suffix_match = match.group(4)
+                    if node_name in sub_flow_node_names:
+                        adjusted_node_name = prefix + node_name
+                        return prefix_match + adjusted_node_name + '.' + rest_of_reference + suffix_match
                     else:
-                        adjusted_first_part = first_part
-
-                    adjusted_reference = '.'.join([adjusted_first_part] + rest_parts)
-
-                    return prefix_match + adjusted_reference + suffix_match
-
+                        return match.group(0)  # Return the original match
                 adjusted_value = re.sub(pattern, replace_func, value)
                 adjusted_params[key] = adjusted_value
             else:
                 adjusted_params[key] = value
         return adjusted_params
+
+
 
     def _adjust_references_in_nodes(self, nodes, yml_flow_node_name, output_mapping):
         """
@@ -302,17 +294,34 @@ class YamlCompose:
             yml_flow_node_name (str): The name of the yml_flow node.
             output_mapping (dict): Mapping from yml_flow outputs to sub-flow node outputs.
         """
+        pattern = r"(\{\{\s*)" + re.escape(yml_flow_node_name) + r"\.([\w_\.]*(?:\[[^\]]+\])?)(\s*\}\})"
         for node_data in nodes:
             params = node_data.get('params', {})
             adjusted_params = {}
             for key, value in params.items():
                 if isinstance(value, str):
-                    for yml_flow_output, sub_flow_output in output_mapping.items():
-                        # Replace references like {{ yml_flow_node_name.output_name }}
-                        pattern = r"\{\{\s*" + re.escape(yml_flow_node_name + '.' + yml_flow_output.split('.')[-1]) + r"\s*\}\}"
-                        value = re.sub(pattern, '{{ ' + sub_flow_output + ' }}', value)
-                adjusted_params[key] = value
+                    def replace_func(match):
+                        prefix_match = match.group(1)
+                        reference = match.group(2)
+                        suffix_match = match.group(3)
+                        # Extract the base output name before any indexing or properties
+                        base_output_name = reference.split('.')[0]
+                        key = yml_flow_node_name + '.' + base_output_name
+                        if key in output_mapping:
+                            adjusted_first_part = output_mapping[key]
+                            rest_of_reference = reference[len(base_output_name):]
+                            adjusted_reference = adjusted_first_part + rest_of_reference
+                            return prefix_match + adjusted_reference + suffix_match
+                        else:
+                            # Reference not in output_mapping
+                            return match.group(0)
+                    adjusted_value = re.sub(pattern, replace_func, value)
+                    adjusted_params[key] = adjusted_value
+                else:
+                    adjusted_params[key] = value
             node_data['params'] = adjusted_params
+
+
 
 def validate_yaml(
     yaml_file: str,

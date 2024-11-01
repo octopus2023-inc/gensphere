@@ -1,5 +1,6 @@
 import yaml
 import jinja2
+from jinja2 import meta
 import networkx as nx
 import importlib
 import traceback
@@ -22,10 +23,14 @@ from gensphere.utils import load_module_from_path
 # Load environment variables
 load_dotenv()
 
+
 # Module-level logger
 logger = logging.getLogger(__name__)
-logging.getLogger('composio').setLevel(logging.WARNING)
+logger.setLevel(logging.INFO)
 
+# Set the root logger to WARNING to suppress INFO logs from external libraries
+logging.basicConfig(level=logging.ERROR)
+logging.getLogger('composio').setLevel(logging.ERROR) #suppress INFO logs from composio
 
 class GenFlow:
     """
@@ -101,16 +106,14 @@ class GenFlow:
         self.build_graph()
 
     def build_graph(self):
-        """
-        Builds the execution graph based on node dependencies.
-        """
         logger.debug("Building execution graph")
         for node in self.nodes.values():
             self.graph.add_node(node.name)
             logger.debug(f"Added node '{node.name}' to graph")
 
+        node_names = self.nodes.keys()
         for node in self.nodes.values():
-            dependencies = node.get_dependencies()
+            dependencies = node.get_dependencies(node_names)
             logger.debug(f"Node '{node.name}' dependencies: {dependencies}")
             for dep in dependencies:
                 if dep in self.nodes:
@@ -123,6 +126,7 @@ class GenFlow:
         if not nx.is_directed_acyclic_graph(self.graph):
             logger.error("The execution graph has cycles. Cannot proceed.")
             raise ValueError("The execution graph has cycles. Cannot proceed.")
+
 
     def run(self):
         """
@@ -212,38 +216,23 @@ class Node:
         """
         self.flow = flow
 
-    def get_dependencies(self):
-        """
-        Extracts dependencies from the parameters and variables.
-
-        Returns:
-            set: A set of node or variable names that this node depends on.
-        """
+    def get_dependencies(self, node_names):
         dependencies = set()
         params = self.node_data.get('params', {})
         for value in params.values():
-            dependencies.update(self.extract_dependencies_from_value(value))
-
+            dependencies.update(self.extract_dependencies_from_value(value, node_names))
         return dependencies
 
-    @staticmethod
-    def extract_dependencies_from_value(value):
-        """
-        Extracts node and variable names from templated values.
-
-        Args:
-            value: The parameter value to inspect.
-
-        Returns:
-            set: A set of node or variable names referenced in the value.
-        """
-        import re
-        pattern = r"\{\{\s*([\w_\.]+)\s*\}\}"
-        matches = re.findall(pattern, str(value))
+    def extract_dependencies_from_value(self, value, node_names):
+        env = jinja2.Environment()
+        ast = env.parse(str(value))
+        variables = meta.find_undeclared_variables(ast)
         dependencies = set()
-        for match in matches:
-            var_parts = match.split('.')
-            dependencies.add(var_parts[0])
+        for var in variables:
+            var_parts = var.split('.')
+            base_var = var_parts[0]
+            if base_var in node_names:
+                dependencies.add(base_var)
         return dependencies
 
     def render_params(self, outputs, env):
@@ -328,13 +317,7 @@ class Node:
                             param_value = param_value.replace(full_ref, str(var_value))
                         # Render any remaining templates
                         template = env.from_string(param_value)
-                        if self.type == 'llm_service' and key == 'prompt':
-                            # Convert variables to strings in context
-                            string_iter_context = {k: str(v) if not isinstance(v, str) else v for k, v in
-                                                   iter_context.items()}
-                            rendered_value = template.render(**string_iter_context)
-                        else:
-                            rendered_value = template.render(**iter_context)
+                        rendered_value = template.render(**iter_context)
                         rendered_params[key] = rendered_value
                     else:
                         rendered_params[key] = value
@@ -358,27 +341,18 @@ class Node:
                                     obj = obj[part]
                                 else:
                                     obj = getattr(obj, part)
-                            if self.type == 'llm_service' and key == 'prompt':
-                                rendered_params[key] = str(obj)
-                            else:
-                                rendered_params[key] = obj
+                            rendered_params[key] = obj
                         except (KeyError, AttributeError, TypeError) as e:
                             raise ValueError(f"Variable '{var_name}' not found in context.") from e
                     else:
                         template = env.from_string(value)
-                        if self.type == 'llm_service' and key == 'prompt':
-                            # Convert variables to strings in context
-                            string_context = {k: str(v) if not isinstance(v, str) else v for k, v in context.items()}
-                            rendered_value = template.render(**string_context)
-                        else:
-                            rendered_value = template.render(**context)
+                        rendered_value = template.render(**context)
                         rendered_params[key] = rendered_value
                 else:
                     rendered_params[key] = value
             return rendered_params
 
-    # Helper function
-    def set_in_context(self,context, var_parts, value):
+    def set_in_context(self, context, var_parts, value):
         obj = context
         for part in var_parts[:-1]:
             if isinstance(obj, dict):
@@ -482,7 +456,8 @@ class Node:
         # Check if both 'tools' and 'structured_output_schema' are defined
         if tools and structured_output_schema_name:
             raise ValueError(f"Node '{self.name}' cannot have both 'tools' and 'structured_output_schema' defined.")
-
+        
+        print(f"Executing OpenAI service with prompt {params['prompt']}")
         # Prepare messages
         messages = [
             {"role": "user", "content": params['prompt']}
@@ -660,12 +635,12 @@ class Node:
                 if assistant_message.refusal:
                     raise Exception(f"OpenAI refusal for structured outputs on node '{self.name}'. Refusal:{assistant_message.refusal}")
                 else:
-                    result = assistant_message.content
+                    result = assistant_message.parsed
             except Exception as e:
                 if type(e) == openai.LengthFinishReasonError:
                     raise Exception(f"Too many tokens were passed to openAi during structured output generation on node {self.name}")
                 else:
-                    raise Exception(f"Failed to parse structured output for node '{self.name}'.")
+                    raise Exception(f"Failed to parse structured output for node '{self.name}'. {e}")
             if result is None:
                 raise ValueError(f"Failed to parse structured output for node '{self.name}'. result coming as None")
 
