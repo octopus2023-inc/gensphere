@@ -1,0 +1,18 @@
+# simple.yaml
+
+nodes:      
+  - name: get_current_date
+    type: function_call
+    function: get_current_date_function
+    outputs:
+      - current_date
+      
+  - name: tell_fun_facts
+    type: llm_service
+    service: openai
+    model: "gpt-4o-2024-08-06"
+    params:
+      prompt: |
+         Today is {{ get_current_date.current_date }}. Tell us a very short list of fun facts about the month we are in.
+    outputs:
+      - fun_facts
