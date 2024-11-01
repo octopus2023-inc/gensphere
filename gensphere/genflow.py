@@ -456,8 +456,6 @@ class Node:
         # Check if both 'tools' and 'structured_output_schema' are defined
         if tools and structured_output_schema_name:
             raise ValueError(f"Node '{self.name}' cannot have both 'tools' and 'structured_output_schema' defined.")
-        
-        print(f"Executing OpenAI service with prompt {params['prompt']}")
         # Prepare messages
         messages = [
             {"role": "user", "content": params['prompt']}

@@ -18,7 +18,7 @@ class Hub:
             yaml_file: Optional[str] = None,
             functions_file: Optional[str] = None,
             schema_file: Optional[str] = None,
-            api_base_url: str = 'http://gensphere.us-east-1.elasticbeanstalk.com/'
+            api_base_url: str = 'http://genspherehub.us-east-1.elasticbeanstalk.com/'
     ):
         self.yaml_file = yaml_file
         self.functions_file = functions_file
