@@ -129,8 +129,38 @@ pip install gensphere
 
 ## Quickstart guide
 
-### 1. Go over our 5-min tutorial notebook
-This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/GenSphere_tutorial.ipynb) contains everything you need to know about GenSphere. 
+Import necessary modules
+
+```
+from gensphere.genflow import GenFlow
+from gensphere.hub import Hub
+```
+
+Pull a project from the platform
+
+```
+hub.pull(push_id='2c03079c-0e33-489e-bbbe-777da744d56f',
+         yaml_filename='simple_examples.yaml',
+         functions_filename='simple_examples_functions.py',
+         save_to_disk=True)
+```
+
+This saves simple_examples.yaml and simple_examples_functions.py to your current working diretory. Now you can execute the flow with. 
+
+```
+flow=GenFlow('simple_examples.yaml','simple_examples_functions.py')
+flow.parse_yaml()
+flow.run()
+```
+
+You can access nodes outputs with
+
+```
+flow.outputs
+```
+
+### Go over our 5-min tutorial notebook
+This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/GenSphere_tutorial.ipynb) contains everything you need to know about GenSphere, including yaml syntax, visualizastion, yaml parsing, nesting workflows, etc. 
 
 ---
 ## Examples
