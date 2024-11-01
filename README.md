@@ -134,6 +134,12 @@ Import necessary modules
 ```
 from gensphere.genflow import GenFlow
 from gensphere.hub import Hub
+from dotenv import load_dotenv
+```
+Load your enviroment variables, with OPENAI_API_KEY defined there.
+
+```
+load_dotenv()
 ```
 
 Pull a project from the platform
@@ -160,7 +166,7 @@ flow.outputs
 ```
 
 ### Go over our 5-min tutorial notebook
-This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/GenSphere_tutorial.ipynb) contains everything you need to know about GenSphere, including yaml syntax, visualizastion, yaml parsing, nesting workflows, etc. 
+This [notebook](https://raw.githubusercontent.com/octopus2023-inc/gensphere/refs/heads/main/gensphere_tutorial.ipynb) contains everything you need to know about GenSphere, including yaml syntax, visualizastion, yaml parsing, nesting workflows, etc. 
 
 ---
 ## Examples
