@@ -150,6 +150,7 @@ load_dotenv()
 Pull a project from the platform
 
 ```
+hub=Hub()
 hub.pull(push_id='2c03079c-0e33-489e-bbbe-777da744d56f',
          yaml_filename='simple_examples.yaml',
          functions_filename='simple_examples_functions.py',
