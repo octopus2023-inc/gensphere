@@ -141,7 +141,7 @@ from gensphere.genflow import GenFlow
 from gensphere.hub import Hub
 from dotenv import load_dotenv
 ```
-Load your enviroment variables, with OPENAI_API_KEY defined there.
+Load your environment variables, with OPENAI_API_KEY defined there.
 
 ```
 load_dotenv()
