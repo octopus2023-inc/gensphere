@@ -1,4 +1,5 @@
 # 🌐 GenSphere
+[![Github All Releases](https://img.shields.io/github/downloads/octopus2023-inc/gensphere/total.svg)]()
 
 GenSphere is an open platform to share reusable components of LLM applications and an open-source framework
 to combine them into complex workflows. **Think of a mix of HuggingFace and Docker for LLMs.**
