@@ -49,11 +49,11 @@ platform and build with them instead of having to work from scratch.
 
 - [Features](#features)
 - [How does it work?](#how-does-it-work)
-- [Notes about this version](#notes-about-this-version)
 - [Installation](#installation)
 - [Quickstart Guide](#quickstart-guide)
 - [Examples](#examples)
 - [How to build agentic systems with GenSphere](#How-to-build-agentic-systems-with-GenSphere)
+- [Notes about this version](#notes-about-this-version)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -109,20 +109,6 @@ complex LLM applications.
 
 - **9. Watch your projects grow**: you can check popularity of your projects by measuring the number of pulls it received. 
 
----
-
-
-## Notes about this version
-
-- In this alpha version, only openAI is supported for AI API calls. We are planning to 
-integrate with other major providers.
-
-- Graphs in yaml files need to be [DAGs](https://en.wikipedia.org/wiki/Directed_acyclic_graph). We are
-planning to allow for cycles, which will unlock full agentic system building using only GenSphere.
-
-- Feedback is welcome! Please [reach out by email](mailto:octopus2023.contact@gmail.com) or join our 
-[discord server](https://discord.gg/DZFWMXJv).
- 
 ---
 
 
@@ -186,6 +172,19 @@ This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/gensphere
 [coming soon]
 
 ---
+
+## Notes about this version
+
+- In this alpha version, only openAI is supported for AI API calls. We are planning to 
+integrate with other major providers.
+
+- Graphs in yaml files need to be [DAGs](https://en.wikipedia.org/wiki/Directed_acyclic_graph). We are
+planning to allow for cycles, which will unlock full agentic system building using only GenSphere.
+
+- Feedback is welcome! Please [reach out by email](mailto:octopus2023.contact@gmail.com) or join our 
+[discord server](https://discord.gg/DZFWMXJv).
+---
+
 ## Contributing
 
 We welcome contributions! Please [reach out by email](mailto:octopus2023.contact@gmail.com) and join our [Discord server](https://discord.gg/DZFWMXJv).
