@@ -4,7 +4,7 @@ GenSphere is a declarative framework to build LLM applications and an open platf
 
 ---
 
-![gensphere_workflow_example](img/gensphere_workflow_example.png)
+![gensphere_workflow_example_gif](img/gensphere_gif.gif)
 
 
 ## What is GenSphere?
@@ -40,8 +40,8 @@ You can also check popularity of published projects, as measured by number of pu
  **compose complex applications from simpler reusable components**. You can pull projects from the 
 platform and build with them instead of having to work from scratch. 
 
+![gensphere_workflow_example](img/gensphere_workflow_example.png)
 
-![gensphere_workflow_example_gif](img/gensphere_gif.gif)
 
 ---
 
