@@ -126,12 +126,12 @@ Import necessary modules
 ```
 from gensphere.genflow import GenFlow
 from gensphere.hub import Hub
-from dotenv import load_dotenv
+import os
 ```
-Load your environment variables, with OPENAI_API_KEY defined there.
+Set your OpenAI API key.
 
 ```
-load_dotenv()
+os.environ['OPENAI_API_KEY']="PLACE_YOUR_OPENAI_API_KEY"
 ```
 
 Pull a project from the platform
