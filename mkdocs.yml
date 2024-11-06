@@ -3,7 +3,7 @@ site_description: Official documentation for GenSphere, a declarative framework 
 site_author: Octopus2023 Inc.
 repo_url: https://github.com/octopus2023-inc/gensphere
 nav:
-  - Introduction: index.md
+  - Home: index.md
   - Getting Started:
       - Installation: getting_started/installation.md
       - Quickstart Guide: getting_started/quickstart.md
