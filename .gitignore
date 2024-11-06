@@ -107,6 +107,3 @@ dmypy.json
 *db
 
 **/work_dir/
-
-#Ignore Markdown (to avoid readme for now)
-*.md
