@@ -8,7 +8,7 @@ nav:
       - Installation: getting_started/installation.md
       - Quickstart Guide: getting_started/quickstart.md
   - Tutorials:
-      -Quickstart Tutorial: tutorials/tutorial.md
+      - Quickstart Tutorial: tutorials/tutorial.md
   - User Guide:
       - Workflows: user_guide/workflows.md
       - Functions and Schemas: user_guide/functions_and_schemas.md
