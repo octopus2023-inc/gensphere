@@ -54,6 +54,7 @@ platform and build with them instead of having to work from scratch.
 - [How does it work?](#how-does-it-work)
 - [Installation](#installation)
 - [Quickstart Guide](#quickstart-guide)
+- [Detailed documentation](detailed-documentation)
 - [Examples](#examples)
 - [How to build agentic systems with GenSphere](#How-to-build-agentic-systems-with-GenSphere)
 - [Notes about this version](#notes-about-this-version)
@@ -165,6 +166,11 @@ flow.outputs
 This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/gensphere_tutorial.ipynb) contains everything you need to know about GenSphere, including yaml syntax, visualizastion, yaml parsing, nesting workflows, etc. 
 
 ---
+## Detailed documentation
+
+Check our [detailed documentation here](https://readthedocs.org/projects/gensphere/badge/?version=latest)
+
+---
 ## Examples
 
 [coming soon]
@@ -186,8 +192,8 @@ planning to allow for cycles, which will unlock full agentic system building usi
 
 - Feedback is welcome! Please [reach out by email](mailto:octopus2023.contact@gmail.com) or join our 
 [discord server](https://discord.gg/DZFWMXJv).
----
 
+---
 ## Contributing
 
 We welcome contributions! Please [reach out by email](mailto:octopus2023.contact@gmail.com) and join our [Discord server](https://discord.gg/DZFWMXJv).
