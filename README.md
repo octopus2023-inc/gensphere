@@ -168,7 +168,7 @@ This [notebook](https://github.com/octopus2023-inc/gensphere/blob/main/gensphere
 ---
 ## Detailed documentation
 
-Check our [detailed documentation here](https://readthedocs.org/projects/gensphere/badge/?version=latest)
+Check our [detailed documentation here](https://gensphere.readthedocs.io/en/latest/)
 
 ---
 ## Examples
