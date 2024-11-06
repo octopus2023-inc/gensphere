@@ -1,0 +1,2116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official documentation for GenSphere, a declarative framework to build LLM applications.">
+      
+      
+        <meta name="author" content="Octopus2023 Inc.">
+      
+      
+      
+        <link rel="prev" href="../../user_guide/execution/">
+      
+      
+      
+      <link rel="icon" href="../../img/globe_with_meridians.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>API reference - GenSphere Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GenSphere Documentation" class="md-header__button md-logo" aria-label="GenSphere Documentation" data-md-component="logo">
+      
+  <img src="../../img/globe_with_meridians.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GenSphere Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/octopus2023-inc/gensphere" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GenSphere Documentation" class="md-nav__button md-logo" aria-label="GenSphere Documentation" data-md-component="logo">
+      
+  <img src="../../img/globe_with_meridians.png" alt="logo">
+
+    </a>
+    GenSphere Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/octopus2023-inc/gensphere" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    -Quickstart Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/functions_and_schemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions and Schemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/nesting_workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nesting workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/integration_with_composio_and_langchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integration with Composio and Langchain tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/lists_and_iterables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lists and iterables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      GenFlow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GenFlow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parse_yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      parse_yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      render_params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamlcompose" class="md-nav__link">
+    <span class="md-ellipsis">
+      YamlCompose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YamlCompose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualizer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start_visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-definition_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    <span class="md-ellipsis">
+      push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      pull
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count_pulls" class="md-nav__link">
+    <span class="md-ellipsis">
+      count_pulls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utility Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_function_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_function_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      validate_yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect_referenced_nodes_and_outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      collect_referenced_nodes_and_outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect_used_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      collect_used_params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect_referenced_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      collect_referenced_params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect_referenced_nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      collect_referenced_nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_yaml_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_yaml_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_yml_flow_nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      has_yml_flow_nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_base_output_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_base_output_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_yaml_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      parse_yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract_referenced_nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      extract_referenced_nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traverse_node_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      traverse_node_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identify_and_style_entrypoints_outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      identify_and_style_entrypoints_outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_graph_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_graph_data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>This section provides detailed documentation of the core classes and utility functions used in GenSphere.</p>
+<hr />
+<h2 id="core-classes">Core Classes<a class="headerlink" href="#core-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#genflow">GenFlow</a></li>
+<li><a href="#node">Node</a></li>
+<li><a href="#yamlcompose">YamlCompose</a></li>
+<li><a href="#visualizer">Visualizer</a></li>
+<li><a href="#hub">Hub</a></li>
+</ul>
+<hr />
+<h3 id="genflow">GenFlow<a class="headerlink" href="#genflow" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>genflow.py</code></p>
+<p>The <code>GenFlow</code> class is responsible for parsing YAML workflow definitions, constructing an execution graph, and executing nodes in the correct order. It manages the overall workflow execution process.</p>
+<h4 id="class-definition">Class Definition<a class="headerlink" href="#class-definition" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">GenFlow</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Initialization code</span>
+
+    <span class="k">def</span> <span class="nf">parse_yaml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Parses the YAML data and constructs nodes</span>
+
+    <span class="k">def</span> <span class="nf">build_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Builds the execution graph</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Executes the nodes in topological order</span>
+</code></pre></div>
+
+<h4 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the main YAML file defining the workflow.</li>
+<li><code>functions_filepath</code> (<em>str</em>, optional): Path to the Python file containing custom function definitions.</li>
+<li><code>structured_output_schema_filepath</code> (<em>str</em>, optional): Path to the Python file containing structured output schemas.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Initializes the <code>GenFlow</code> instance by loading the YAML data and preparing the environment for execution. It verifies the validity of provided file paths and ensures that the necessary files are accessible.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If the provided <code>functions_filepath</code> or <code>structured_output_schema_filepath</code> does not exist.</li>
+<li><code>ValueError</code>: If the provided file paths are not <code>.py</code> files.</li>
+</ul>
+<h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
+<h5 id="parse_yaml"><code>parse_yaml</code><a class="headerlink" href="#parse_yaml" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_yaml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Description:</strong></p>
+<p>Parses the YAML data from the main workflow file and constructs the nodes for execution. It also checks for the presence of nested workflows (<code>yml_flow</code> nodes) and composes them using <code>YamlCompose</code> if necessary. Validates the YAML file for consistency before parsing.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>Exception</code>: If the YAML file fails consistency checks.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">flow</span> <span class="o">=</span> <span class="n">GenFlow</span><span class="p">(</span><span class="s1">&#39;workflow.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;functions.py&#39;</span><span class="p">,</span> <span class="s1">&#39;schemas.py&#39;</span><span class="p">)</span>
+<span class="n">flow</span><span class="o">.</span><span class="n">parse_yaml</span><span class="p">()</span>
+</code></pre></div>
+
+<h5 id="build_graph"><code>build_graph</code><a class="headerlink" href="#build_graph" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">build_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Description:</strong></p>
+<p>Builds a directed acyclic graph (DAG) representing the execution order of nodes based on their dependencies. It adds nodes and edges to the graph according to the dependencies identified during parsing.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If the graph contains cycles or if a node depends on an undefined node or variable.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">flow</span><span class="o">.</span><span class="n">build_graph</span><span class="p">()</span>
+</code></pre></div>
+
+<h5 id="run"><code>run</code><a class="headerlink" href="#run" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Description:</strong></p>
+<p>Executes the nodes in the order determined by the topological sort of the execution graph. It renders the parameters for each node using the outputs of previously executed nodes and handles iterative execution for nodes processing lists.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>Exception</code>: If there are cycles in the graph or if an error occurs during node execution.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">flow</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>After execution, the outputs from each node are stored in the <code>outputs</code> attribute of the <code>GenFlow</code> instance.</p>
+<hr />
+<h3 id="node">Node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>genflow.py</code></p>
+<p>The <code>Node</code> class represents an individual operation or step within the workflow. It encapsulates the logic required to execute that step, including parameter rendering and function execution.</p>
+<h4 id="class-definition_1">Class Definition<a class="headerlink" href="#class-definition_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_data</span><span class="p">):</span>
+        <span class="c1"># Initialization code</span>
+
+    <span class="k">def</span> <span class="nf">set_flow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flow</span><span class="p">):</span>
+        <span class="c1"># Sets reference to the GenFlow instance</span>
+
+    <span class="k">def</span> <span class="nf">get_dependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_names</span><span class="p">):</span>
+        <span class="c1"># Retrieves the dependencies of the node</span>
+
+    <span class="k">def</span> <span class="nf">render_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="c1"># Renders the parameters using previous outputs</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Executes the node based on its type and parameters</span>
+</code></pre></div>
+
+<h4 id="constructor_1">Constructor<a class="headerlink" href="#constructor_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_data</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>node_data</code> (<em>dict</em>): Dictionary containing the node's configuration from the YAML file.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Initializes the <code>Node</code> instance with the given configuration. It extracts essential information such as the node's name, type, outputs, and parameters.</p>
+<h4 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h4>
+<h5 id="set_flow"><code>set_flow</code><a class="headerlink" href="#set_flow" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">set_flow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flow</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>flow</code> (<em>GenFlow</em>): Reference to the <code>GenFlow</code> instance managing the workflow execution.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Sets the reference to the <code>GenFlow</code> instance, allowing the node to access shared resources and configurations during execution.</p>
+<h5 id="get_dependencies"><code>get_dependencies</code><a class="headerlink" href="#get_dependencies" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_dependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_names</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>node_names</code> (<em>Iterable[str]</em>): Iterable of all node names in the workflow.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dependencies</code> (<em>Set[str]</em>): Set of node names that the current node depends on.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Analyzes the node's parameters to determine which other nodes it depends on. This is used to build the execution graph and ensure correct execution order.</p>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">dependencies</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_dependencies</span><span class="p">(</span><span class="n">flow</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div>
+
+<h5 id="render_params"><code>render_params</code><a class="headerlink" href="#render_params" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">render_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>outputs</code> (<em>dict</em>): Outputs from previously executed nodes.</li>
+<li><code>env</code> (<em>jinja2.Environment</em>): Jinja2 environment used for templating.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>rendered_params</code> (<em>dict</em> or <em>list of dicts</em>): Parameters with values rendered using the outputs of previous nodes.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Renders the node's parameters by substituting placeholders with actual values from previous outputs. Supports handling of indexed parameters and lists for iterative processing.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If a referenced variable is not found or is not iterable when expected.</li>
+</ul>
+<h5 id="execute"><code>execute</code><a class="headerlink" href="#execute" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>params</code> (<em>dict</em>): Parameters to be used for the node execution.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>outputs</code> (<em>dict</em>): Dictionary of outputs produced by the node execution.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Executes the node based on its type:</p>
+<ul>
+<li>For <code>function_call</code> nodes, it executes a Python function.</li>
+<li>For <code>llm_service</code> nodes, it interacts with an LLM service like OpenAI.</li>
+</ul>
+<p>Delegates to specific execution methods depending on the node type.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>NotImplementedError</code>: If the node type is not supported.</li>
+<li><code>Exception</code>: If an error occurs during execution.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">outputs</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">rendered_params</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h3 id="yamlcompose">YamlCompose<a class="headerlink" href="#yamlcompose" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<p>The <code>YamlCompose</code> class is responsible for composing multiple YAML workflow files into a single unified workflow. It resolves references to nested workflows (<code>yml_flow</code> nodes) and adjusts node names and parameters to ensure uniqueness and consistency.</p>
+<h4 id="class-definition_2">Class Definition<a class="headerlink" href="#class-definition_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">YamlCompose</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="p">):</span>
+        <span class="c1"># Initialization code</span>
+
+    <span class="k">def</span> <span class="nf">compose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_combined_yaml</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">):</span>
+        <span class="c1"># Starts the composition process and returns the combined YAML data</span>
+</code></pre></div>
+
+<h4 id="constructor_2">Constructor<a class="headerlink" href="#constructor_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the root YAML file to be composed.</li>
+<li><code>functions_filepath</code> (<em>str</em>): Path to the Python file containing custom functions.</li>
+<li><code>structured_output_schema_filepath</code> (<em>str</em>): Path to the Python file containing structured output schemas.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Initializes the <code>YamlCompose</code> instance and prepares for the composition process by validating the provided file paths.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If the provided file paths do not exist.</li>
+<li><code>ValueError</code>: If the provided file paths are not <code>.py</code> files.</li>
+</ul>
+<h4 id="methods_2">Methods<a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h4>
+<h5 id="compose"><code>compose</code><a class="headerlink" href="#compose" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">compose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_combined_yaml</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>save_combined_yaml</code> (<em>bool</em>, optional): If <code>True</code>, saves the combined YAML data to a file.</li>
+<li><code>output_file</code> (<em>str</em>, optional): Filename to save the combined YAML data.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>combined_data</code> (<em>dict</em>): The combined YAML data after composition.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Starts the composition process by recursively processing the root YAML file and any nested sub-flows. Adjusts node names and parameter references to ensure uniqueness across the combined workflow.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>Exception</code>: If validation fails during composition.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">composer</span> <span class="o">=</span> <span class="n">YamlCompose</span><span class="p">(</span><span class="s1">&#39;main_workflow.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;functions.py&#39;</span><span class="p">,</span> <span class="s1">&#39;schemas.py&#39;</span><span class="p">)</span>
+<span class="n">combined_yaml_data</span> <span class="o">=</span> <span class="n">composer</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">save_combined_yaml</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>After composition, the combined YAML file can be executed as a single workflow.</p>
+<hr />
+<h2 id="visualizer">Visualizer<a class="headerlink" href="#visualizer" title="Permanent link">&para;</a></h2>
+<p><strong>Module:</strong> <code>visualizer.py</code></p>
+<p>The <code>Visualizer</code> class provides a graphical representation of GenSphere workflows using a web-based interface powered by Dash and Cytoscape. It allows users to visualize nodes, their types, dependencies, and inspect details of each node interactively.</p>
+<h3 id="class-definition_3">Class Definition<a class="headerlink" href="#class-definition_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Visualizer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8050</span><span class="p">):</span>
+        <span class="c1"># Initialization code</span>
+
+    <span class="k">def</span> <span class="nf">start_visualization</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Starts the Dash application for visualization</span>
+</code></pre></div>
+
+<h3 id="constructor_3">Constructor<a class="headerlink" href="#constructor_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8050</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>, optional): Path to the YAML file defining the workflow.</li>
+<li><code>functions_filepath</code> (<em>str</em>, optional): Path to the Python file containing custom function definitions.</li>
+<li><code>structured_output_schema_filepath</code> (<em>str</em>, optional): Path to the Python file containing structured output schemas.</li>
+<li><code>address</code> (<em>str</em>, optional): The IP address to host the Dash app (default: <code>'127.0.0.1'</code>).</li>
+<li><code>port</code> (<em>int</em>, optional): The port to host the Dash app (default: <code>8050</code>).</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Initializes the <code>Visualizer</code> instance by setting up the necessary file paths and loading the user-provided functions and schemas. It validates the existence and correctness of the provided files and prepares the environment for visualization.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If any of the provided file paths do not exist.</li>
+<li><code>ValueError</code>: If the provided files are not <code>.py</code> files.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensphere.visualizer</span> <span class="kn">import</span> <span class="n">Visualizer</span>
+
+<span class="n">viz</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;workflow.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_filepath</span><span class="o">=</span><span class="s1">&#39;functions.py&#39;</span><span class="p">,</span>
+    <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="s1">&#39;schemas.py&#39;</span><span class="p">,</span>
+    <span class="n">address</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8050</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="methods_3">Methods<a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h3>
+<h4 id="start_visualization"><code>start_visualization</code><a class="headerlink" href="#start_visualization" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">start_visualization</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Description:</strong></p>
+<p>Starts the Dash application for visualizing the GenSphere workflow. The application provides an interactive interface where nodes are displayed graphically, and users can click on nodes to view detailed information such as parameters, outputs, functions, and schemas.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li><strong>Graph Visualization:</strong> Uses Cytoscape to render the workflow graph.</li>
+<li><strong>Interactive Nodes:</strong> Clicking on a node displays detailed information.</li>
+<li><strong>Legend:</strong> Includes a legend explaining node types and edge styles.</li>
+<li><strong>Dynamic Loading:</strong> Users can input a different YAML file path and reload the graph.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">viz</span><span class="o">.</span><span class="n">start_visualization</span><span class="p">()</span>
+</code></pre></div>
+
+<p>After running this method, navigate to <code>http://127.0.0.1:8050</code> in your web browser to view the visualization.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Ensure that the YAML file and any referenced functions or schemas are correctly specified.</li>
+<li>The visualization runs a local web server; make sure the specified <code>address</code> and <code>port</code> are accessible.</li>
+</ul>
+<hr />
+<h2 id="hub">Hub<a class="headerlink" href="#hub" title="Permanent link">&para;</a></h2>
+<p><strong>Module:</strong> <code>hub.py</code></p>
+<p>The <code>Hub</code> class provides an interface to interact with the GenSphere Hub platform. It allows users to push workflows to the hub, pull workflows from the hub, and check the number of times a workflow has been pulled.</p>
+<h3 id="class-definition_4">Class Definition<a class="headerlink" href="#class-definition_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Hub</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">schema_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_base_url</span><span class="o">=</span><span class="s1">&#39;http://genspherehub.us-east-1.elasticbeanstalk.com/&#39;</span><span class="p">):</span>
+        <span class="c1"># Initialization code</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Pushes the workflow to the GenSphere Hub</span>
+
+    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_id</span><span class="p">,</span> <span class="n">save_to_disk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">yaml_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">schema_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+        <span class="c1"># Pulls a workflow from the GenSphere Hub</span>
+
+    <span class="k">def</span> <span class="nf">count_pulls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_id</span><span class="p">):</span>
+        <span class="c1"># Retrieves the total number of times a push has been pulled</span>
+</code></pre></div>
+
+<h3 id="constructor_4">Constructor<a class="headerlink" href="#constructor_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">schema_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_base_url</span><span class="o">=</span><span class="s1">&#39;http://genspherehub.us-east-1.elasticbeanstalk.com/&#39;</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>, optional): Path to the YAML file to be pushed.</li>
+<li><code>functions_file</code> (<em>str</em>, optional): Path to the functions file to be pushed.</li>
+<li><code>schema_file</code> (<em>str</em>, optional): Path to the schema file to be pushed.</li>
+<li><code>api_base_url</code> (<em>str</em>, optional): Base URL for the GenSphere Hub API.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Initializes the <code>Hub</code> instance with the provided file paths and API base URL. Prepares the instance for pushing and pulling workflows to and from the GenSphere Hub platform.</p>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensphere.hub</span> <span class="kn">import</span> <span class="n">Hub</span>
+
+<span class="n">hub</span> <span class="o">=</span> <span class="n">Hub</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;workflow.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_file</span><span class="o">=</span><span class="s1">&#39;functions.py&#39;</span><span class="p">,</span>
+    <span class="n">schema_file</span><span class="o">=</span><span class="s1">&#39;schemas.py&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="methods_4">Methods<a class="headerlink" href="#methods_4" title="Permanent link">&para;</a></h3>
+<h4 id="push"><code>push</code><a class="headerlink" href="#push" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>push_name</code> (<em>str</em>, optional): A descriptive name for the workflow being pushed.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>result</code> (<em>dict</em>): A dictionary containing the <code>push_id</code> and a list of uploaded files.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Pushes the specified workflow files to the GenSphere Hub. Validates the YAML file for consistency before pushing. The <code>push_id</code> returned can be used to pull the workflow or check its pull count.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If no <code>yaml_file</code> is provided or if the functions or schema files are not <code>.py</code> files.</li>
+<li><code>Exception</code>: If validation fails or if an error occurs during the push.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">push_name</span><span class="o">=</span><span class="s1">&#39;My Awesome Workflow&#39;</span><span class="p">)</span>
+<span class="n">push_id</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;push_id&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Workflow pushed with push_id: </span><span class="si">{</span><span class="n">push_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="pull"><code>pull</code><a class="headerlink" href="#pull" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_id</span><span class="p">,</span> <span class="n">save_to_disk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">yaml_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">functions_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">schema_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>push_id</code> (<em>str</em>): The <code>push_id</code> of the workflow to pull.</li>
+<li><code>save_to_disk</code> (<em>bool</em>, optional): If <code>True</code>, saves the pulled files to disk (default: <code>True</code>).</li>
+<li><code>yaml_filename</code> (<em>str</em>, optional): Custom filename for the YAML file.</li>
+<li><code>functions_filename</code> (<em>str</em>, optional): Custom filename for the functions file.</li>
+<li><code>schema_filename</code> (<em>str</em>, optional): Custom filename for the schema file.</li>
+<li><code>download_path</code> (<em>str</em>, optional): Directory to save the pulled files (default: <code>"."</code>).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>files_content</code> (<em>dict</em>): A dictionary containing the contents of the pulled files.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Pulls a workflow from the GenSphere Hub using the provided <code>push_id</code>. Optionally saves the files to disk with custom filenames. Ensures that existing files are not overwritten by appending a counter if necessary.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>Exception</code>: If an error occurs during the pull operation.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span>
+    <span class="n">push_id</span><span class="o">=</span><span class="n">push_id</span><span class="p">,</span>
+    <span class="n">save_to_disk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">yaml_filename</span><span class="o">=</span><span class="s1">&#39;downloaded_workflow.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_filename</span><span class="o">=</span><span class="s1">&#39;downloaded_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">schema_filename</span><span class="o">=</span><span class="s1">&#39;downloaded_schemas.py&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h4 id="count_pulls"><code>count_pulls</code><a class="headerlink" href="#count_pulls" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">count_pulls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">push_id</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>push_id</code> (<em>str</em>): The <code>push_id</code> of the workflow to check.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>pull_count</code> (<em>int</em>): The total number of times the workflow has been pulled.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Retrieves the total number of times a workflow has been pulled from the GenSphere Hub using the provided <code>push_id</code>.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>Exception</code>: If an error occurs during the request.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">pull_count</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">count_pulls</span><span class="p">(</span><span class="n">push_id</span><span class="o">=</span><span class="n">push_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The workflow has been pulled </span><span class="si">{</span><span class="n">pull_count</span><span class="si">}</span><span class="s2"> times.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="utility-functions">Utility Functions<a class="headerlink" href="#utility-functions" title="Permanent link">&para;</a></h2>
+<p>This section documents the utility functions used within GenSphere, primarily for internal processing and validation.</p>
+<hr />
+<h3 id="get_function_schema">get_function_schema<a class="headerlink" href="#get_function_schema" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>genflow.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_function_schema</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>func</code> (<em>function</em>): The Python function object to generate a schema for.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>function_def</code> (<em>dict</em>): A dictionary representing the function definition, including name, description, and parameters.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Generates a schema for a given function by inspecting its signature and docstring. This schema is used for OpenAI's function calling feature in LLM service nodes. It ensures that the function parameters are properly typed and documented.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If a parameter lacks a type annotation or if the function lacks a docstring.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<p>Used internally when preparing function definitions for OpenAI's function calling.</p>
+<hr />
+<h3 id="validate_yaml">validate_yaml<a class="headerlink" href="#validate_yaml" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">validate_yaml</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="p">,</span>
+    <span class="n">functions_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">parent_node_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">visited_files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">parent_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">parent_node_outputs</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the YAML file being validated.</li>
+<li><code>functions_filepath</code> (<em>str</em>, optional): Path to the functions file.</li>
+<li><code>structured_output_schema_filepath</code> (<em>str</em>, optional): Path to the schemas file.</li>
+<li><code>parent_node_names</code> (<em>Set[str]</em>, optional): Set of node names from the parent flow.</li>
+<li><code>visited_files</code> (<em>Set[str]</em>, optional): Set of visited YAML files to prevent circular references.</li>
+<li><code>parent_params</code> (<em>Set[str]</em>, optional): Set of parameter names passed from the parent flow.</li>
+<li><code>parent_node_outputs</code> (<em>Dict[str, List[str]]</em>, optional): Dictionary of node outputs from parent flows.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>validated</code> (<em>bool</em>): <code>True</code> if validation passes, <code>False</code> otherwise.</li>
+<li><code>error_msgs</code> (<em>List[str]</em>): List of error messages encountered during validation.</li>
+<li><code>node_outputs</code> (<em>Dict[str, List[str]]</em>): Dictionary of node outputs in the current flow.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Validates a YAML workflow file and any associated sub-flows for consistency and correctness. Checks for issues such as:</p>
+<ul>
+<li>Missing required fields (<code>name</code>, <code>type</code>).</li>
+<li>Duplicate node names.</li>
+<li>Undefined or duplicate outputs.</li>
+<li>References to undefined nodes or outputs.</li>
+<li>Cycles in the execution graph.</li>
+<li>Validity of functions and schemas.</li>
+</ul>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If referenced files do not exist.</li>
+<li><code>ValueError</code>: If the YAML structure is invalid.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<p>Used internally before executing or composing workflows to ensure they are valid.</p>
+<hr />
+<h3 id="collect_referenced_nodes_and_outputs">collect_referenced_nodes_and_outputs<a class="headerlink" href="#collect_referenced_nodes_and_outputs" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">collect_referenced_nodes_and_outputs</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>params</code> (<em>dict</em>): Parameters dictionary from a node.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>referenced_nodes_outputs</code> (<em>Set[Tuple[str, str]]</em>): A set of tuples containing referenced node names and outputs.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Analyzes the parameters of a node to identify all referenced nodes and their outputs, which is essential for validating dependencies and ensuring that all references are valid.</p>
+<hr />
+<h3 id="collect_used_params">collect_used_params<a class="headerlink" href="#collect_used_params" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">collect_used_params</span><span class="p">(</span><span class="n">yaml_data</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_data</code> (<em>dict</em>): The YAML data of a workflow.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>used_params</code> (<em>Set[str]</em>): A set of parameter names used within the workflow.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Collects all parameter names that are used in the workflow, particularly in the context of nested workflows (<code>yml_flow</code> nodes). This helps in validating that all required parameters are provided.</p>
+<hr />
+<h3 id="collect_referenced_params">collect_referenced_params<a class="headerlink" href="#collect_referenced_params" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">collect_referenced_params</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>params</code> (<em>dict</em>): Parameters dictionary from a node.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>referenced_params</code> (<em>Set[str]</em>): A set of parameter names referenced in the parameters.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Identifies all parameter names that are referenced within the node's parameters, usually in templated strings. This is used to ensure that all referenced parameters are defined.</p>
+<hr />
+<h3 id="collect_referenced_nodes">collect_referenced_nodes<a class="headerlink" href="#collect_referenced_nodes" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">collect_referenced_nodes</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>params</code> (<em>dict</em>): Parameters dictionary from a node.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>referenced_nodes</code> (<em>Set[str]</em>): A set of node names referenced in the parameters.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Identifies all node names that are referenced within the node's parameters. This is crucial for building the execution graph and determining the correct execution order.</p>
+<hr />
+<h3 id="load_yaml_file">load_yaml_file<a class="headerlink" href="#load_yaml_file" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">load_yaml_file</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the YAML file to load.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>data</code> (<em>dict</em>): The loaded YAML data.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Loads the YAML data from a file and handles parsing errors. Ensures that the file exists and contains valid YAML.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If the YAML file does not exist.</li>
+<li><code>ValueError</code>: If there is an error parsing the YAML file.</li>
+</ul>
+<hr />
+<h3 id="has_yml_flow_nodes">has_yml_flow_nodes<a class="headerlink" href="#has_yml_flow_nodes" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">has_yml_flow_nodes</span><span class="p">(</span><span class="n">yaml_data</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_data</code> (<em>dict</em>): The YAML data of a workflow.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>bool</code>: <code>True</code> if the workflow contains any <code>yml_flow</code> nodes, <code>False</code> otherwise.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Checks whether the given YAML data contains any nested workflows (<code>yml_flow</code> nodes). This helps determine if composition is necessary before execution.</p>
+<hr />
+<h3 id="get_base_output_name">get_base_output_name<a class="headerlink" href="#get_base_output_name" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>yaml_utils.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_base_output_name</span><span class="p">(</span><span class="n">output_reference</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>output_reference</code> (<em>str</em>): A string representing an output reference (e.g., <code>'countries_list[i]'</code>).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>base_output_name</code> (<em>str</em>): The base output name extracted from the reference.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Extracts the base output name from a complex output reference that may include indexing or attribute access. Used during validation to identify the actual outputs being referenced.</p>
+<hr />
+<h3 id="parse_yaml_1">parse_yaml<a class="headerlink" href="#parse_yaml_1" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>graph_builder.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_yaml</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the YAML file to parse.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>data</code> (<em>dict</em>): Parsed YAML data.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Parses a YAML file and returns its content as a dictionary. Validates the existence of the file and handles parsing errors.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>FileNotFoundError</code>: If the YAML file does not exist.</li>
+<li><code>yaml.YAMLError</code>: If an error occurs during YAML parsing.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">parse_yaml</span><span class="p">(</span><span class="s1">&#39;workflow.yaml&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h3 id="extract_referenced_nodes">extract_referenced_nodes<a class="headerlink" href="#extract_referenced_nodes" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>graph_builder.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">extract_referenced_nodes</span><span class="p">(</span><span class="n">template_str</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>template_str</code> (<em>str</em>): A templated string containing references to other nodes (e.g., <code>"{{ node.output }}"</code>).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>referenced_nodes</code> (<em>Set[str]</em>): A set of referenced node names.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Extracts all referenced node names from a templated string using regular expressions. Useful for identifying dependencies between nodes in a workflow.</p>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">template_str</span> <span class="o">=</span> <span class="s2">&quot;{{ node1.output }} and {{ node2.output }}&quot;</span>
+<span class="n">referenced_nodes</span> <span class="o">=</span> <span class="n">extract_referenced_nodes</span><span class="p">(</span><span class="n">template_str</span><span class="p">)</span>
+<span class="c1"># referenced_nodes will be {&#39;node1&#39;, &#39;node2&#39;}</span>
+</code></pre></div>
+
+<hr />
+<h3 id="traverse_node_fields">traverse_node_fields<a class="headerlink" href="#traverse_node_fields" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>graph_builder.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">traverse_node_fields</span><span class="p">(</span><span class="n">node_value</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>node_value</code> (<em>Union[str, dict, list]</em>): The node value to traverse.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>referenced_nodes</code> (<em>Set[str]</em>): A set of referenced node names found within the node value.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Recursively traverses a node's fields to find all referenced node names. Handles strings, dictionaries, and lists. Used to identify all dependencies for a node.</p>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">node_params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;param1&#39;</span><span class="p">:</span> <span class="s1">&#39;{{ node1.output }}&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;param2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;subparam&#39;</span><span class="p">:</span> <span class="s1">&#39;{{ node2.output }}&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">referenced_nodes</span> <span class="o">=</span> <span class="n">traverse_node_fields</span><span class="p">(</span><span class="n">node_params</span><span class="p">)</span>
+<span class="c1"># referenced_nodes will be {&#39;node1&#39;, &#39;node2&#39;}</span>
+</code></pre></div>
+
+<hr />
+<h3 id="identify_and_style_entrypoints_outputs">identify_and_style_entrypoints_outputs<a class="headerlink" href="#identify_and_style_entrypoints_outputs" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>graph_builder.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">identify_and_style_entrypoints_outputs</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>elements</code> (<em>list</em>): List of Cytoscape elements (nodes and edges).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>elements</code> (<em>list</em>): Updated list of Cytoscape elements with styled entrypoints and output nodes.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Identifies entrypoint nodes (nodes with no incoming edges) and output nodes (nodes with no outgoing edges) in the workflow graph and styles them accordingly for visualization purposes.</p>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">elements</span> <span class="o">=</span> <span class="n">identify_and_style_entrypoints_outputs</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h3 id="build_graph_data">build_graph_data<a class="headerlink" href="#build_graph_data" title="Permanent link">&para;</a></h3>
+<p><strong>Module:</strong> <code>graph_builder.py</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">build_graph_data</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">):</span>
+</code></pre></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>yaml_file</code> (<em>str</em>): Path to the YAML file defining the workflow.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>elements</code> (<em>list</em>): List of Cytoscape elements (nodes and edges) representing the workflow graph.</li>
+</ul>
+<p><strong>Description:</strong></p>
+<p>Builds graph data compatible with Cytoscape from a YAML workflow definition. It processes nodes and edges, identifies dependencies, and prepares the data for visualization.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If a node lacks a name or if there are duplicate node names.</li>
+</ul>
+<p><strong>Example Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">elements</span> <span class="o">=</span> <span class="n">build_graph_data</span><span class="p">(</span><span class="s1">&#39;workflow.yaml&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="additional-information">Additional Information<a class="headerlink" href="#additional-information" title="Permanent link">&para;</a></h2>
+<p>These utility functions are primarily used internally by GenSphere to process and validate workflows. Understanding them can be helpful for advanced users who wish to extend or debug the framework.</p>
+<hr />
+<p><strong>Note:</strong> When developing custom functions or schemas for use in GenSphere workflows, ensure that:</p>
+<ul>
+<li>Functions have proper docstrings and type annotations.</li>
+<li>Schemas are defined using Pydantic models.</li>
+<li>Functions and schemas are placed in the files specified when initializing <code>GenFlow</code> or <code>YamlCompose</code>.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>For more examples and usage instructions, refer to the  <a href="../../tutorials/tutorial/">Tutorials</a>.</p>
+<hr />
+<p>If you have any questions or need further assistance, reach out on our <a href="https://github.com/octopus2023-inc/gensphere/issues">GitHub Issues</a> page.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "navigation.tracking", "toc.integrate", "instant"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,52 @@
+site_name: GenSphere Documentation
+site_description: Official documentation for GenSphere, a declarative framework to build LLM applications.
+site_author: Octopus2023 Inc.
+repo_url: https://github.com/octopus2023-inc/gensphere
+nav:
+  - Introduction: index.md
+  - Getting Started:
+      - Installation: getting_started/installation.md
+      - Quickstart Guide: getting_started/quickstart.md
+  - Tutorials:
+      -Quickstart Tutorial: tutorials/tutorial.md
+  - User Guide:
+      - Workflows: user_guide/workflows.md
+      - Functions and Schemas: user_guide/functions_and_schemas.md
+      - Nesting workflows: user_guide/nesting_workflows.md
+      - Integration with Composio and Langchain tools: user_guide/integration_with_composio_and_langchain.md
+      - Lists and iterables: user_guide/lists_and_iterables.md
+      - Visualization: user_guide/visualization.md
+      - Execution: user_guide/execution.md
+  - API Reference: 
+      - API reference: api_reference/api_reference.md
+theme:
+  name: material
+  logo: img/globe_with_meridians.png
+  favicon: img/globe_with_meridians.png
+  palette:
+    - scheme: default
+      primary: 'indigo'
+      accent: 'indigo'
+  features:
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.integrate
+    - instant
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+extra_css:
+  - css/custom.css
+extra_javascript:
+  - js/custom.js
+plugins:
+  - search
+  - git-revision-date-localized:
+      locale: en
+      timezone: UTC

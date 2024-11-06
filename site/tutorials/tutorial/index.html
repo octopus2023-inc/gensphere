@@ -1,0 +1,1629 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official documentation for GenSphere, a declarative framework to build LLM applications.">
+      
+      
+        <meta name="author" content="Octopus2023 Inc.">
+      
+      
+      
+        <link rel="prev" href="../../getting_started/quickstart/">
+      
+      
+        <link rel="next" href="../../user_guide/workflows/">
+      
+      
+      <link rel="icon" href="../../img/globe_with_meridians.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>-Quickstart Tutorial - GenSphere Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gensphere-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GenSphere Documentation" class="md-header__button md-logo" aria-label="GenSphere Documentation" data-md-component="logo">
+      
+  <img src="../../img/globe_with_meridians.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GenSphere Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              -Quickstart Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/octopus2023-inc/gensphere" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GenSphere Documentation" class="md-nav__button md-logo" aria-label="GenSphere Documentation" data-md-component="logo">
+      
+  <img src="../../img/globe_with_meridians.png" alt="logo">
+
+    </a>
+    GenSphere Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/octopus2023-inc/gensphere" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    -Quickstart Tutorial
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    -Quickstart Tutorial
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-importing-gensphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Importing GenSphere
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setting-up-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setting Up Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-defining-your-workflow-with-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Defining Your Workflow with YAML
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Defining Your Workflow with YAML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pulling-a-base-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Pulling a Base YAML File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Pulling a Base YAML File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pulling-from-the-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pulling from the Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-the-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the YAML File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-visualizing-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Visualizing Your Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-understanding-the-yaml-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Understanding the YAML Syntax
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Understanding the YAML Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-call-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Call Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-service-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLM Service Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yml-flow-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      YML Flow Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Lists
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-combining-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Combining Workflows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Combining Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-the-new-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining the New Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composing-the-combined-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composing the Combined Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-the-combined-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizing the Combined Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-running-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Running Your Project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Running Your Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-input-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparing Input Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executing the Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the Outputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pushing-to-the-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Pushing to the Platform
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-checking-project-popularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Checking Project Popularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/functions_and_schemas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions and Schemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/nesting_workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nesting workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/integration_with_composio_and_langchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integration with Composio and Langchain tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/lists_and_iterables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lists and iterables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/api_reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="gensphere-tutorial">GenSphere Tutorial<a class="headerlink" href="#gensphere-tutorial" title="Permanent link">&para;</a></h1>
+<p>Welcome to the <strong>GenSphere</strong> tutorial! In this guide, we'll walk you through the main functionalities of GenSphere, an AI agent development framework that simplifies the creation and execution of complex workflows involving functions and language models.</p>
+<p>By completing this tutorial, you will learn how to:</p>
+<ol>
+<li>Define workflows using YAML files.</li>
+<li>Use pre-built components from the GenSphere platform.</li>
+<li>Nest workflows to create complex pipelines.</li>
+<li>Utilize custom functions and schemas, and integrate with LangChain and Composio tools.</li>
+<li>Visualize workflows for better understanding.</li>
+<li>Push and pull workflows to and from the GenSphere platform.</li>
+</ol>
+<p>You can also run this example directly on <a href="https://github.com/octopus2023-inc/gensphere/blob/main/examples/gensphere_tutorial.ipynb">Google Colab here</a>. Let's get started!</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-installation">Installation</a></li>
+<li><a href="#2-importing-gensphere">Importing GenSphere</a></li>
+<li><a href="#3-setting-up-environment-variables">Setting Up Environment Variables</a></li>
+<li><a href="#4-defining-your-workflow-with-yaml">Defining Your Workflow with YAML</a></li>
+<li><a href="#41-pulling-a-base-yaml-file">4.1 Pulling a Base YAML File</a></li>
+<li><a href="#42-visualizing-your-project">4.2 Visualizing Your Project</a></li>
+<li><a href="#43-understanding-the-yaml-syntax">4.3 Understanding the YAML Syntax</a><ul>
+<li><a href="#function-call-nodes">Function Call Nodes</a></li>
+<li><a href="#llm-service-nodes">LLM Service Nodes</a></li>
+<li><a href="#yml-flow-nodes">YML Flow Nodes</a></li>
+<li><a href="#working-with-lists">Working with Lists</a></li>
+</ul>
+</li>
+<li><a href="#5-combining-workflows">Combining Workflows</a></li>
+<li><a href="#6-running-your-project">Running Your Project</a></li>
+<li><a href="#7-pushing-to-the-platform">Pushing to the Platform</a></li>
+<li><a href="#8-checking-project-popularity">Checking Project Popularity</a></li>
+<li><a href="#9-conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="1-installation">1. Installation<a class="headerlink" href="#1-installation" title="Permanent link">&para;</a></h2>
+<p>First, ensure you have <strong>Python 3.10</strong> or higher installed on your system. Then, install GenSphere and other required libraries using <code>pip</code>:</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gensphere
+</code></pre></div>
+
+<hr />
+<h2 id="2-importing-gensphere">2. Importing GenSphere<a class="headerlink" href="#2-importing-gensphere" title="Permanent link">&para;</a></h2>
+<p>In your Python script or Jupyter notebook, import the necessary modules:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">gensphere.genflow</span> <span class="kn">import</span> <span class="n">GenFlow</span>
+<span class="kn">from</span> <span class="nn">gensphere.yaml_utils</span> <span class="kn">import</span> <span class="n">YamlCompose</span>
+<span class="kn">from</span> <span class="nn">gensphere.visualizer</span> <span class="kn">import</span> <span class="n">Visualizer</span>
+<span class="kn">from</span> <span class="nn">gensphere.hub</span> <span class="kn">import</span> <span class="n">Hub</span>
+</code></pre></div>
+
+<p>Set up logging to monitor the execution:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;app.log&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3-setting-up-environment-variables">3. Setting Up Environment Variables<a class="headerlink" href="#3-setting-up-environment-variables" title="Permanent link">&para;</a></h2>
+<p>If you haven't defined your enviroment variables yet, you can do so now. Replace the placeholders with your actual API keys. You'll need API keys for <strong>OpenAI</strong>, <strong>Composio</strong>, and <strong>FireCrawl</strong>.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;YOUR_OPENAI_API_KEY&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;COMPOSIO_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;YOUR_COMPOSIO_API_KEY&#39;</span>  <span class="c1"># Visit composio.dev to get one</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;FIRECRAWL_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;YOUR_FIRECRAWL_API_KEY&#39;</span>  <span class="c1"># Visit firecrawl.dev to get one</span>
+</code></pre></div>
+
+<hr />
+<h2 id="4-defining-your-workflow-with-yaml">4. Defining Your Workflow with YAML<a class="headerlink" href="#4-defining-your-workflow-with-yaml" title="Permanent link">&para;</a></h2>
+<p>Our goal is to create a workflow that automatically finds the latest product releases on <a href="https://www.producthunt.com">Product Hunt</a>, explores their revenue and traction, and analyzes a new startup idea based on that information.</p>
+<h3 id="41-pulling-a-base-yaml-file">4.1 Pulling a Base YAML File<a class="headerlink" href="#41-pulling-a-base-yaml-file" title="Permanent link">&para;</a></h3>
+<p>We will use a <strong>pre-built workflow</strong> from the GenSphere open platform that extracts information from Product Hunt. This workflow will be nested into a larger workflow to achieve our objective.</p>
+<h4 id="pulling-from-the-platform">Pulling from the Platform<a class="headerlink" href="#pulling-from-the-platform" title="Permanent link">&para;</a></h4>
+<p>Use the <code>Hub</code> class to pull the base YAML file, along with its associated functions and schema files:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Define paths to save the files</span>
+<span class="n">path_to_save_yaml_file</span> <span class="o">=</span> <span class="s1">&#39;product_hunt_analyzer.yaml&#39;</span>
+<span class="n">path_to_save_functions_file</span> <span class="o">=</span> <span class="s1">&#39;gensphere_functions.py&#39;</span>
+<span class="n">path_to_save_schema_file</span> <span class="o">=</span> <span class="s1">&#39;structured_output_schema.py&#39;</span>
+
+<span class="c1"># Initialize the Hub</span>
+<span class="n">hub</span> <span class="o">=</span> <span class="n">Hub</span><span class="p">()</span>
+
+<span class="c1"># Pull the files using the push_id</span>
+<span class="n">hub</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span>
+    <span class="n">push_id</span><span class="o">=</span><span class="s1">&#39;de8afbeb-06cb-4f8f-8ead-64d9e6ef5326&#39;</span><span class="p">,</span>
+    <span class="n">yaml_filename</span><span class="o">=</span><span class="n">path_to_save_yaml_file</span><span class="p">,</span>
+    <span class="n">functions_filename</span><span class="o">=</span><span class="n">path_to_save_functions_file</span><span class="p">,</span>
+    <span class="n">schema_filename</span><span class="o">=</span><span class="n">path_to_save_schema_file</span><span class="p">,</span>
+    <span class="n">save_to_disk</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h4 id="examining-the-yaml-file">Examining the YAML File<a class="headerlink" href="#examining-the-yaml-file" title="Permanent link">&para;</a></h4>
+<p>The YAML file <code>product_hunt_analyzer.yaml</code> has been saved locally. Here's the content:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># product_hunt_analyzer.yaml</span>
+
+<span class="nt">nodes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_current_date</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">    </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_current_date_function</span>
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">current_date</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_timewindow</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">    </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_timewindow_function</span>
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_window</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_scrape</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">    </span><span class="nt">tools</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COMPOSIO.FIRECRAWL_SCRAPE</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">You should visit Product Hunt at https://www.producthunt.com/leaderboard/monthly/yyyy/mm</span>
+<span class="w">        </span><span class="no">Today is {{ get_current_date.current_date }}</span>
+<span class="w">        </span><span class="no">Substitute yyyy and mm with the year and month you want to search.</span>
+<span class="w">        </span><span class="no">The search time window should be {{ get_timewindow.time_window }}.</span>
+<span class="w">        </span><span class="no">Extract raw content from the HTML pages, which contain information about new product launches, companies, number of upvotes, etc.</span>
+<span class="w">        </span><span class="no">Scroll the page until the end and wait a few milliseconds before scraping.</span>
+
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_scrape_results</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">extract_info_from_search</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">    </span><span class="nt">structured_output_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartupInformationList</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">You are given reports from a search on Product Hunt containing products featured last month:</span>
+<span class="w">        </span><span class="no">{{ product_hunt_scrape.product_hunt_scrape_results }}.</span>
+<span class="w">        </span><span class="no">Extract accurate information about these new product launches.</span>
+<span class="w">        </span><span class="no">Structure the information with the following dimensions: product name, company name, company URL, number of upvotes, business model, and brief description.</span>
+
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">structured_search_info</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocess_search_results</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">    </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocess_search_results_function</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">info</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">extract_info_from_search.structured_search_info</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocessed_search_results</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">find_extra_info</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">    </span><span class="nt">tools</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COMPOSIO.TAVILY_TAVILY_SEARCH</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">Conduct a comprehensive web search about the following entry from Product Hunt:</span>
+<span class="w">        </span><span class="no">{{ postprocess_search_results.postprocessed_search_results[i] }}.</span>
+<span class="w">        </span><span class="no">Find relevant news about the company, especially related to revenue, valuation, traction, acquisition, number of users, etc.</span>
+
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startup_extra_info</span>
+</code></pre></div>
+
+<h3 id="42-visualizing-your-project">4.2 Visualizing Your Project<a class="headerlink" href="#42-visualizing-your-project" title="Permanent link">&para;</a></h3>
+<p>To better understand the workflow, use the <code>Visualizer</code> class to visualize the project:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">viz</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;product_hunt_analyzer.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_file</span><span class="o">=</span><span class="s1">&#39;gensphere_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">schema_file</span><span class="o">=</span><span class="s1">&#39;structured_output_schema.py&#39;</span><span class="p">,</span>
+    <span class="n">address</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8050</span>
+<span class="p">)</span>
+<span class="n">viz</span><span class="o">.</span><span class="n">start_visualization</span><span class="p">()</span>
+</code></pre></div>
+
+<p><strong>Note:</strong> Running the visualization inside environments like Google Colab might be cumbersome. It's recommended to run it locally and access it through your browser.</p>
+<h3 id="43-understanding-the-yaml-syntax">4.3 Understanding the YAML Syntax<a class="headerlink" href="#43-understanding-the-yaml-syntax" title="Permanent link">&para;</a></h3>
+<p>GenSphere uses a YAML-based syntax to define workflows. There are three types of nodes:</p>
+<ol>
+<li><strong>Function Call Nodes</strong> (<code>function_call</code>)</li>
+<li><strong>LLM Service Nodes</strong> (<code>llm_service</code>)</li>
+<li><strong>YML Flow Nodes</strong> (<code>yml_flow</code>)</li>
+</ol>
+<h4 id="function-call-nodes">Function Call Nodes<a class="headerlink" href="#function-call-nodes" title="Permanent link">&para;</a></h4>
+<p>These nodes trigger the execution of Python functions defined in a separate <code>.py</code> file. They have <code>params</code> and <code>outputs</code> fields.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_current_date</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">  </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_current_date_function</span>
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">current_date</span>
+</code></pre></div>
+
+<p><strong>Function Definition (<code>gensphere_functions.py</code>):</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># gensphere_functions.py</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">get_current_date_function</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the current date as a string.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A dictionary with &#39;current_date&#39; as key and current date as value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;current_date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)}</span>
+</code></pre></div>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Function Outputs</strong>: The function must return a dictionary whose keys match the <code>outputs</code> defined in the YAML file.</li>
+<li><strong>Referencing Outputs</strong>: Use the syntax <code>{{ node_name.output_name }}</code> to reference outputs from other nodes in the <code>params</code> field.</li>
+</ul>
+<h4 id="llm-service-nodes">LLM Service Nodes<a class="headerlink" href="#llm-service-nodes" title="Permanent link">&para;</a></h4>
+<p>These nodes execute calls to language model APIs. Currently, GenSphere supports OpenAI's API, including <strong>structured outputs</strong> and <strong>function calling</strong>.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_scrape</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">  </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">  </span><span class="nt">tools</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COMPOSIO.FIRECRAWL_SCRAPE</span>
+<span class="w">  </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">You should visit Product Hunt at https://www.producthunt.com/leaderboard/monthly/yyyy/mm</span>
+<span class="w">      </span><span class="no">Today is {{ get_current_date.current_date }}</span>
+<span class="w">      </span><span class="no">Substitute yyyy and mm with the year and month you want to search.</span>
+<span class="w">      </span><span class="no">The search time window should be {{ get_timewindow.time_window }}.</span>
+<span class="w">      </span><span class="no">Extract raw content from the HTML pages, which contain information about new product launches, companies, number of upvotes, etc.</span>
+<span class="w">      </span><span class="no">Scroll the page until the end and wait a few milliseconds before scraping.</span>
+
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_scrape_results</span>
+</code></pre></div>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Tools Field</strong>: Can refer to functions in your <code>.py</code> file, Composio tools (<code>COMPOSIO.tool_name</code>), or LangChain tools (<code>LANGCHAIN.tool_name</code>).</li>
+<li><strong>Structured Outputs</strong>: Use the <code>structured_output_schema</code> field to specify a Pydantic schema for the expected output.</li>
+</ul>
+<p><strong>Structured Output Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">extract_info_from_search</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">  </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">  </span><span class="nt">structured_output_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartupInformationList</span>
+<span class="w">  </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">You are given reports from a search on Product Hunt containing products featured last month:</span>
+<span class="w">      </span><span class="no">{{ product_hunt_scrape.product_hunt_scrape_results }}.</span>
+<span class="w">      </span><span class="no">Extract accurate information about these new product launches.</span>
+<span class="w">      </span><span class="no">Structure the information with the following dimensions: product name, company name, company URL, number of upvotes, business model, and brief description.</span>
+
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">structured_search_info</span>
+</code></pre></div>
+
+<p><strong>Schema Definition (<code>structured_output_schema.py</code>):</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># structured_output_schema.py</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">StartupInformation</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">product_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The name of the product&quot;</span><span class="p">)</span>
+    <span class="n">company_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The name of the company offering the product&quot;</span><span class="p">)</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;URL associated with the product&quot;</span><span class="p">)</span>
+    <span class="n">number_upvotes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Number of upvotes the product has received&quot;</span><span class="p">)</span>
+    <span class="n">business_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Brief description of the business model&quot;</span><span class="p">)</span>
+    <span class="n">brief_description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Brief description of the product&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">StartupInformationList</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">information_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">StartupInformation</span><span class="p">]</span>
+</code></pre></div>
+
+<p><strong>Post-Processing Node:</strong></p>
+<p>After obtaining structured output, we want post-process it. The output is an instance of the class <code>StartupInformationList</code>, which is a list of <code>StartupInformation</code> instances, as defined in the pydantic mode. We want to extract this as a list, so we applu the <code>postprocess_search_results_function</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocess_search_results</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">  </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocess_search_results_function</span>
+<span class="w">  </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">info</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">extract_info_from_search.structured_search_info</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocessed_search_results</span>
+</code></pre></div>
+
+<p><strong>Function Definition (<code>gensphere_functions.py</code>):</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">postprocess_search_results_function</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes the structured search information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        info (StartupInformationList): The structured search info.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A dictionary with &#39;postprocessed_search_results&#39; as key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;information_list&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;postprocessed_search_results&#39;</span><span class="p">:</span> <span class="n">result</span><span class="p">}</span>
+</code></pre></div>
+
+<h4 id="yml-flow-nodes">YML Flow Nodes<a class="headerlink" href="#yml-flow-nodes" title="Permanent link">&para;</a></h4>
+<p>These nodes represent entire YAML files themselves, allowing you to nest workflows.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_analyzer</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yml_flow</span>
+<span class="w">  </span><span class="nt">yml_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_analyzer.yaml</span>
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocessed_search_results</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startup_extra_info</span>
+</code></pre></div>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Nested Workflows</strong>: GenSphere will handle dependencies and compose a combined YAML file that is ready to run.</li>
+<li><strong>Parameters</strong>: You can pass parameters to the nested workflow using the <code>params</code> field.</li>
+</ul>
+<h4 id="working-with-lists">Working with Lists<a class="headerlink" href="#working-with-lists" title="Permanent link">&para;</a></h4>
+<p>When the output of a node is a list, you might want to apply the next node to each element individually.</p>
+<p><strong>Syntax:</strong></p>
+<ul>
+<li>Use <code>{{ node_name.output_name[i] }}</code> in the <code>params</code> or <code>prompt</code> field.</li>
+<li>GenSphere will execute the node for each element and collect the outputs as a list.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">find_extra_info</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">  </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">  </span><span class="nt">tools</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COMPOSIO.TAVILY_TAVILY_SEARCH</span>
+<span class="w">  </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">Conduct a comprehensive web search about the following entry from Product Hunt:</span>
+<span class="w">      </span><span class="no">{{ postprocess_search_results.postprocessed_search_results[i] }}.</span>
+<span class="w">      </span><span class="no">Find relevant news about the company, especially related to revenue, valuation, traction, acquisition, number of users, etc.</span>
+
+<span class="w">  </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startup_extra_info</span>
+</code></pre></div>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Iterative Processing</strong>: The node will process each item in <code>postprocessed_search_results</code> individually.</li>
+<li><strong>Collected Outputs</strong>: Outputs are collected into a list corresponding to each input item.</li>
+</ul>
+<hr />
+<h2 id="5-combining-workflows">5. Combining Workflows<a class="headerlink" href="#5-combining-workflows" title="Permanent link">&para;</a></h2>
+<p>Now, we'll embed the <code>product_hunt_analyzer</code> workflow into a larger workflow to analyze a new startup idea.</p>
+<h3 id="defining-the-new-workflow">Defining the New Workflow<a class="headerlink" href="#defining-the-new-workflow" title="Permanent link">&para;</a></h3>
+<p>Create a new YAML file named <code>startup_idea_evaluator.yaml</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># startup_idea_evaluator.yaml</span>
+
+<span class="nt">nodes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read_idea</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function_call</span>
+<span class="w">    </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read_file_as_string</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">file_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;domains_to_search.txt&quot;</span>
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">domains</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_analyzer</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yml_flow</span>
+<span class="w">    </span><span class="nt">yml_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product_hunt_analyzer.yaml</span>
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postprocessed_search_results</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startup_extra_info</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generate_report</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_service</span>
+<span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gpt-4o-2024-08-06&quot;</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">You are a world-class VC analyst. You are analyzing the following startup idea:</span>
+<span class="w">        </span><span class="no">{{ read_idea.domains }}</span>
+<span class="w">        </span><span class="no">Your task is to analyze this idea in the context of recent launches on Product Hunt.</span>
+<span class="w">        </span><span class="no">Recent launches are:</span>
+<span class="w">        </span><span class="no">{{ product_hunt_analyzer.postprocessed_search_results }}</span>
+<span class="w">        </span><span class="no">Additional information about these companies:</span>
+<span class="w">        </span><span class="no">{{ product_hunt_analyzer.startup_extra_info }}.</span>
+
+<span class="w">        </span><span class="no">Create a detailed report containing:</span>
+<span class="w">        </span><span class="no">1. An overview of recent launches on Product Hunt. What are the main ideas being explored?</span>
+<span class="w">        </span><span class="no">2. A list of companies from Product Hunt that may become direct competitors to the startup idea. Explain your rationale.</span>
+<span class="w">        </span><span class="no">3. A list of the most promising startups from the Product Hunt launches, based on valuation, revenue, traction, or other relevant metrics.</span>
+<span class="w">        </span><span class="no">4. A table containing all information found from the Product Hunt launches.</span>
+
+<span class="w">        </span><span class="no">Answer in markdown format.</span>
+
+<span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">report</span>
+</code></pre></div>
+
+<h3 id="composing-the-combined-workflow">Composing the Combined Workflow<a class="headerlink" href="#composing-the-combined-workflow" title="Permanent link">&para;</a></h3>
+<p>Use <code>YamlCompose</code> to create a combined YAML file that resolves all dependencies:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Assuming &#39;startup_idea_evaluator.yaml&#39; is in the current directory</span>
+<span class="n">composer</span> <span class="o">=</span> <span class="n">YamlCompose</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;startup_idea_evaluator.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_filepath</span><span class="o">=</span><span class="s1">&#39;gensphere_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="s1">&#39;structured_output_schema.py&#39;</span>
+<span class="p">)</span>
+<span class="n">combined_yaml_data</span> <span class="o">=</span> <span class="n">composer</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">save_combined_yaml</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Note:</strong> Ensure all referenced functions and schemas are available in the specified files.</p>
+<h3 id="visualizing-the-combined-workflow">Visualizing the Combined Workflow<a class="headerlink" href="#visualizing-the-combined-workflow" title="Permanent link">&para;</a></h3>
+<p>You can visualize the combined workflow to verify that nesting has been handled correctly:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">viz</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_file</span><span class="o">=</span><span class="s1">&#39;gensphere_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">schema_file</span><span class="o">=</span><span class="s1">&#39;structured_output_schema.py&#39;</span><span class="p">,</span>
+    <span class="n">address</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8050</span>
+<span class="p">)</span>
+<span class="n">viz</span><span class="o">.</span><span class="n">start_visualization</span><span class="p">()</span>
+</code></pre></div>
+
+<hr />
+<h2 id="6-running-your-project">6. Running Your Project<a class="headerlink" href="#6-running-your-project" title="Permanent link">&para;</a></h2>
+<p>Now that you have the combined YAML file and necessary Python files, you can execute the workflow.</p>
+<h3 id="preparing-input-files">Preparing Input Files<a class="headerlink" href="#preparing-input-files" title="Permanent link">&para;</a></h3>
+<p>The first node <code>read_idea</code> expects a text file named <code>domains_to_search.txt</code>. Create this file with your startup idea:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">startup_idea</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">A startup that creates interactive voice agents using generative AI with emphasis on applications like</span>
+<span class="s2">language tutoring, entertainment, or mental health. The business model would be B2C.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;domains_to_search.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">startup_idea</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="executing-the-workflow">Executing the Workflow<a class="headerlink" href="#executing-the-workflow" title="Permanent link">&para;</a></h3>
+<p>Initialize <code>GenFlow</code> and run the workflow:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">flow</span> <span class="o">=</span> <span class="n">GenFlow</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_filepath</span><span class="o">=</span><span class="s1">&#39;gensphere_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">structured_output_schema_filepath</span><span class="o">=</span><span class="s1">&#39;structured_output_schema.py&#39;</span>
+<span class="p">)</span>
+<span class="n">flow</span><span class="o">.</span><span class="n">parse_yaml</span><span class="p">()</span>
+<span class="n">flow</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="accessing-the-outputs">Accessing the Outputs<a class="headerlink" href="#accessing-the-outputs" title="Permanent link">&para;</a></h3>
+<p>After execution, you can access the results:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Access all outputs</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">outputs</span>
+
+<span class="c1"># Print the final report</span>
+<span class="n">final_report</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;generate_report&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;report&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the report in Markdown format</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">final_report</span><span class="p">))</span>
+</code></pre></div>
+
+<hr />
+<h2 id="7-pushing-to-the-platform">7. Pushing to the Platform<a class="headerlink" href="#7-pushing-to-the-platform" title="Permanent link">&para;</a></h2>
+<p>You can push your project to the GenSphere platform, allowing others to pull and use it.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">hub</span> <span class="o">=</span> <span class="n">Hub</span><span class="p">(</span>
+    <span class="n">yaml_file</span><span class="o">=</span><span class="s1">&#39;combined.yaml&#39;</span><span class="p">,</span>
+    <span class="n">functions_file</span><span class="o">=</span><span class="s1">&#39;gensphere_functions.py&#39;</span><span class="p">,</span>
+    <span class="n">schema_file</span><span class="o">=</span><span class="s1">&#39;structured_output_schema.py&#39;</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">push_name</span><span class="o">=</span><span class="s1">&#39;Workflow to analyze startup idea based on recent Product Hunt launches.&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Retrieve and print the <code>push_id</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Push ID: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;push_id&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Uploaded Files: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;uploaded_files&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="8-checking-project-popularity">8. Checking Project Popularity<a class="headerlink" href="#8-checking-project-popularity" title="Permanent link">&para;</a></h2>
+<p>Check how many times your project has been pulled from the platform:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Replace with your actual push_id</span>
+<span class="n">push_id</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;push_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get the total number of pulls for the push_id</span>
+<span class="n">total_pulls</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">count_pulls</span><span class="p">(</span><span class="n">push_id</span><span class="o">=</span><span class="n">push_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total pulls for push_id </span><span class="si">{</span><span class="n">push_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">total_pulls</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="9-conclusion">9. Conclusion<a class="headerlink" href="#9-conclusion" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You've successfully:</p>
+<ul>
+<li>Defined workflows using YAML files.</li>
+<li>Used pre-built components and nested workflows.</li>
+<li>Integrated custom functions, schemas, and external tools.</li>
+<li>Visualized your workflow for better understanding.</li>
+<li>Executed the workflow and accessed the outputs.</li>
+<li>Pushed your project to the GenSphere platform.</li>
+</ul>
+<hr />
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>GenSphere GitHub Repository</strong>: <a href="https://github.com/octopus2023-inc/gensphere">https://github.com/octopus2023-inc/gensphere</a></li>
+<li><strong>Composio Documentation</strong>: <a href="https://app.composio.dev/sdk_guide">https://app.composio.dev/sdk_guide</a></li>
+<li><strong>LangChain Tools</strong>: <a href="https://python.langchain.com/api_reference/community/tools.html">https://python.langchain.com/api_reference/community/tools.html</a></li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>If you encounter any issues:</p>
+<ul>
+<li><strong>API Keys</strong>: Ensure all API keys are correctly set as environment variables.</li>
+<li><strong>Dependencies</strong>: Verify that all required packages are installed.</li>
+<li><strong>File Paths</strong>: Double-check the file paths provided to functions and classes.</li>
+<li><strong>Logs</strong>: Check the <code>app.log</code> file for detailed error messages.</li>
+</ul>
+<hr />
+<h2 id="feedback">Feedback<a class="headerlink" href="#feedback" title="Permanent link">&para;</a></h2>
+<p>Your feedback is valuable. If you have suggestions or find any issues, please open an issue on the <a href="https://github.com/octopus2023-inc/gensphere/issues">GenSphere GitHub repository</a>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "navigation.tracking", "toc.integrate", "instant"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
