@@ -1,8 +1,11 @@
 # 🌐 GenSphere
+[![Documentation Status](https://readthedocs.org/projects/gensphere/badge/?version=latest)](https://<project-slug>.readthedocs.io/en/latest/?badge=latest)
 
 GenSphere is a declarative framework to build LLM applications and an open platform to push and pull them. **Think of Docker for LLM applications.**
 
 ---
+
+
 
 ![gensphere_workflow_example_gif](img/gensphere_gif.gif)
 
