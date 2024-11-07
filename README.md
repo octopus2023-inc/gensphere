@@ -10,6 +10,19 @@ Check the [medium article here](https://medium.com/p/182fd2a70e3e). GenSphere is
 
 ![gensphere_workflow_example_gif](img/gensphere_gif.gif)
 
+## Why GenSphere?
+The process of building agentic systems and LLM-based applications in general feels **so inefficient today**. 
+On the one hand, current frameworks introduce so much complexity that most people end up prefering to write code from scratch. 
+On the other, most people build agents as monoliths today. For instance, if you are building a stock trading agent, you also build the web scraper agent for gathering financial info, the processing models etc.
+
+**This makes no sense**. In the example above, the web scraper agent for financial data is useful for hundreds of different applications. But people usually reinvent the wheel, there's no easy way to embed other people's agent on your workflows, for a number of reasons.
+I always thought that the most efficient way to build agentic systems would:
+
+- Have an open-source community that collaborates to build specialized agents that are reusable for many use cases.
+- Have a framework that makes it easy to embed different agents into a single multi-agent system that accomplishes particular tasks.
+- A platform (like Docker Hub or HuggingFace) where people can push and pull their projects from.
+
+GenSphere is a framework that tries to address all these points at once. 
 
 ## What is GenSphere?
 
