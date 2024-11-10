@@ -14,9 +14,9 @@ Check the [medium article here](https://medium.com/p/182fd2a70e3e). GenSphere is
 
 GenSphere is framework to build LLM applications by declaring tasks and how they connect on YAML files. That unlocks a ton of features, including:
 
-### 1. Text-to-agent: 
+### 1. Agents from prompts: 
 
-Because the YAML files are an economical description of workflow logics, which abstract away the execution code, one can use LLMs themselves generation those files from high-level prompts. This opens the possibility of building full-fledged text-to-agents workflows.
+Because the YAML files are an economical description of workflow logics, which abstract away the execution code, one can use LLMs themselves generation those files from high-level prompts. This opens the possibility of building full-fledged text-to-agents workflows. [Check this colab notebook](https://github.com/octopus2023-inc/gensphere/blob/main/examples/agentic_workflows_from_prompts.ipynb)
 
 ### 2. Low-level control 
 
