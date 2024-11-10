@@ -47,9 +47,6 @@ You can also check popularity of published projects, as measured by number of pu
  **compose complex applications from simpler reusable components**. You can pull projects from the 
 platform and build with them instead of having to work from scratch. 
 
-![gensphere_workflow_example](img/gensphere_workflow_example.png)
-
-
 ---
 
 ## Table of Contents
