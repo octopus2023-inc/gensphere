@@ -195,12 +195,12 @@ integrate with other major providers.
 planning to allow for cycles, which will unlock full agentic system building using only GenSphere.
 
 - Feedback is welcome! Please [reach out by email](mailto:octopus2023.contact@gmail.com) or join our 
-[discord server](https://discord.gg/DZFWMXJv).
+[discord server](https://discord.gg/qvgEaR3E).
 
 ---
 ## Contributing
 
-We welcome contributions! Please [reach out by email](mailto:octopus2023.contact@gmail.com) and join our [Discord server](https://discord.gg/DZFWMXJv).
+We welcome contributions! Please [reach out by email](mailto:octopus2023.contact@gmail.com) and join our [Discord server](https://discord.gg/qvgEaR3E).
 
 ---
 ## License
