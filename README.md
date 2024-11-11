@@ -200,6 +200,10 @@ planning to allow for cycles, which will unlock full agentic system building usi
 We welcome contributions! Please [reach out by email](mailto:octopus2023.contact@gmail.com) and join our [Discord server](https://discord.gg/qvgEaR3E).
 
 ---
+## Feedback
+Leave your [anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSeGjy0YAlh2-qdgIUplern67rCt-nC59JeJi6NkRtt7DkCVTQ/viewform?pli=1)
+
+---
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
